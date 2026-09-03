@@ -1,0 +1,10 @@
+-Xms{{ JVM_MEMORY }}
+-Xmx{{ JVM_MEMORY }}
+
+-XX:+UseG1GC
+-XX:+AlwaysPreTouch
+-XX:MaxGCPauseMillis=200
+-XX:G1HeapRegionSize=8M
+-XX:MaxTenuringThreshold=1
+
+-javaagent:authlib-injector-1.2.8.jar={{ JVM_AUTHLIB_INJECTOR_URL }}

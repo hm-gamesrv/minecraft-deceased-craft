@@ -1,0 +1,82 @@
+{
+    "schemaVersion": 1,
+    "key": "minecraft-gtnh",
+    "name": "Minecraft GTNH",
+    "registries": {
+        "ghcr": "ghcr.io/hm-gamesrv/",
+        "aliyun": "crpi-i9e7zrpnu4792a5m.cn-chengdu.personal.cr.aliyuncs.com/hiromuraki/"
+    },
+    "resources": {
+        "ports": [
+            {
+                "host": "25565",
+                "container": "25565",
+                "proto": "tcp",
+                "required": true,
+                "desc": "游戏联机端口"
+            },
+            {
+                "host": "25575",
+                "container": "25575",
+                "proto": "tcp",
+                "desc": "RCON 端口"
+            }
+        ],
+        "volumes": [
+            {
+                "host": "./minecraft-gtnh-World",
+                "container": "/app/World",
+                "required": true,
+                "desc": "游戏世界存档"
+            },
+            {
+                "host": "./minecraft-gtnh-backups",
+                "container": "/app/backups",
+                "required": true,
+                "desc": "ServerUtilities 模组备份路径"
+            }
+        ],
+        "env": [
+            {
+                "name": "JVM_MEMORY",
+                "value": "8G",
+                "desc": "JVM 堆内存大小（同时作用于 -Xms/-Xmx），如 4G、2500M"
+            },
+            {
+                "name": "JVM_AUTHLIB_INJECTOR_URL",
+                "value": "",
+                "desc": "外置登录（authlib-injector）Yggdrasil API 地址，置空则跳过外置登录"
+            },
+            {
+                "name": "GAME_MAX_PLAYERS",
+                "value": "8",
+                "desc": "服务器列表显示的玩家容量，达到上限后新玩家无法加入"
+            },
+            {
+                "name": "GAME_ONLINE_MODE",
+                "value": "true",
+                "desc": "是否启用在线验证模式：true=开启，false=关闭"
+            },
+            {
+                "name": "GAME_ENABLE_RCON",
+                "value": "false",
+                "desc": "是否启用 RCON"
+            },
+            {
+                "name": "GAME_RCON_PASSWORD",
+                "value": "",
+                "secret": true,
+                "desc": "RCON 口令"
+            }
+        ],
+        "extraArgs": ""
+    },
+    "variants": [
+        {
+            "key": "latest",
+            "name": "最新正式版",
+            "tag": "latest",
+            "container": "minecraft-gtnh-server"
+        }
+    ]
+}
