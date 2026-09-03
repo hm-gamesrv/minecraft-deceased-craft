@@ -22,7 +22,8 @@ COPY --from=download --chown=1000:1000 ["/download", "/app"]
 
 WORKDIR /app
 
-RUN java -jar forge-1.20.1-47.4.0-installer.jar --installServer
+RUN java -jar forge-1.20.1-47.4.0-installer.jar --installServer \
+    && rm -f /app/mods/default-server-properties-*.jar
 
 COPY --chown=1000:1000 ["./patch/", "/app"]
 
