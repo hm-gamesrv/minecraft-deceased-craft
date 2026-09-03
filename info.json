@@ -24,8 +24,8 @@
         ],
         "volumes": [
             {
-                "host": "./minecraft-deceased-craft-World",
-                "container": "/app/World",
+                "host": "./minecraft-deceased-craft-world",
+                "container": "/app/world",
                 "required": true,
                 "desc": "游戏世界存档"
             }

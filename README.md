@@ -25,7 +25,7 @@
 
 | 宿主路径 | 容器路径 | 说明 |
 | --- | --- | --- |
-| `./minecraft-deceased-craft-World` | `/app/World` | 游戏世界存档 |
+| `./minecraft-deceased-craft-world` | `/app/world` | 游戏世界存档 |
 
 #### 环境变量
 
@@ -53,7 +53,7 @@ docker build -t minecraft-deceased-craft:temp . && \
         -e GAME_RCON_PASSWORD=your_game_rcon_password \
         -p 25565:25565/tcp \
         -p 25575:25575/tcp \
-        -v ./minecraft-deceased-craft-World:/app/World \
+        -v ./minecraft-deceased-craft-world:/app/world \
         minecraft-deceased-craft:temp
 ```
 
@@ -78,7 +78,7 @@ podman run --rm -it \
     -e GAME_RCON_PASSWORD=your_game_rcon_password \
     -p 25565:25565/tcp \
     -p 25575:25575/tcp \
-    -v ./minecraft-deceased-craft-World:/app/World \
+    -v ./minecraft-deceased-craft-world:/app/world \
     "$IMAGE"
 ```
 
