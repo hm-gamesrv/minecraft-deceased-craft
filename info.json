@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
-    "key": "minecraft-gtnh",
-    "name": "Minecraft GTNH",
+    "key": "minecraft-deceased-craft",
+    "name": "Minecraft Deceased Craft",
     "registries": {
         "ghcr": "ghcr.io/hm-gamesrv/",
         "aliyun": "crpi-i9e7zrpnu4792a5m.cn-chengdu.personal.cr.aliyuncs.com/hiromuraki/"
@@ -24,22 +24,16 @@
         ],
         "volumes": [
             {
-                "host": "./minecraft-gtnh-World",
+                "host": "./minecraft-deceased-craft-World",
                 "container": "/app/World",
                 "required": true,
                 "desc": "游戏世界存档"
-            },
-            {
-                "host": "./minecraft-gtnh-backups",
-                "container": "/app/backups",
-                "required": true,
-                "desc": "ServerUtilities 模组备份路径"
             }
         ],
         "env": [
             {
                 "name": "JVM_MEMORY",
-                "value": "8G",
+                "value": "16G",
                 "desc": "JVM 堆内存大小（同时作用于 -Xms/-Xmx），如 4G、2500M"
             },
             {
@@ -76,7 +70,7 @@
             "key": "latest",
             "name": "最新正式版",
             "tag": "latest",
-            "container": "minecraft-gtnh-server"
+            "container": "minecraft-deceased-craft-server"
         }
     ]
 }
