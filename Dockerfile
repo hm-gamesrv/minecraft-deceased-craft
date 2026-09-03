@@ -26,6 +26,8 @@ RUN java -jar forge-1.20.1-47.4.0-installer.jar --installServer
 
 COPY --chown=1000:1000 ["./patch/", "/app"]
 
+RUN rm -f /app/mods/lootr-forge-1.20-0.7.35.94.jar
+
 # ===================
 # Runtime
 # ===================
@@ -40,7 +42,7 @@ COPY --chown=1000:1000 ["./init.sh", "/usr/local/bin/init.sh"]
 
 EXPOSE 25565/tcp 25575/tcp
 
-VOLUME [ "/app/World" ]
+VOLUME [ "/app/world" ]
 
 WORKDIR /app
 USER 1000:1000
